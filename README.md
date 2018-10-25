@@ -1,7 +1,7 @@
 # Ordering-automation-system-for-cafeteria-or-restaurant
 Ordering automation system for cafeteria / restaurant. Read the README file for more information.
 
-Imagine a seguinte situação. Em uma lanchonete, os pedidos são feitos no caixa e a informação é levada a cozinha de forma manual. Este sistema foi desenvolvido a fim de facilitar esta comunicação. Modo de funcionamento:
+Motivação: Em uma lanchonete, os pedidos são feitos no caixa e a informação é levada a cozinha de forma manual. Este sistema foi desenvolvido a fim de facilitar esta comunicação. Modo de funcionamento:
 Existem dois executáveis operando simultaneamente.
 
 Caixa:
