@@ -1,19 +1,19 @@
 /*
-Centro Universit·rio Anhanguera de NiterÛi
-Jo„o Victor Simonassi Farias. RA: 6000000060 PROUNI
+UNIAN
+Jo√£o Victor Simonassi Farias. RA: 6000000060 PROUNI
 joaovictorsimonassifarias@gmail.com
-2∫ PerÌodo
+2¬∫ Per√≠odo
 Professora: Alessandra Fonseca
-Trabalho final da disciplina de ProgramaÁ„o Estruturada
+Trabalho final da disciplina de Programa√ß√£o Estruturada
 */
 
-#include <stdio.h> // Entrada e saÌda
-#include <stdlib.h> // AlocaÁ„o de memÛria
+#include <stdio.h> // Entrada e sa√≠da
+#include <stdlib.h> // Aloca√ß√£o de mem√≥ria
 #include <string.h> 
 #include <unistd.h> // Leitura e escrita de arquivos no windows
 #include <conio.h> // Limpa a tela e esse tipo de coisa
 #include <locale.h> // Acentos e outras coisas pt-br
-#include <windows.h> // FunÁıes do windows
+#include <windows.h> // Fun√ß√µes do windows
 
 #define BUFFER 64 
 
@@ -23,7 +23,7 @@ Trabalho final da disciplina de ProgramaÁ„o Estruturada
 #define enter 13
 
 FILE *arquivo; // ponteiro para apontar o txt das vendas.
-int volta = 0, conta = 0;  // Vari·vel para armazenar a lista de pedidos.  … DECLARADA DE FORMA GLOBAL PQ SE DECLARAR DENTRO DA FUN«√O, SEMPRE QUE VOLTARMOS PELO WHILE, ELA VAI VOLTAR A SER 1.
+int volta = 0, conta = 0;  // Vari√°vel para armazenar a lista de pedidos.  √â DECLARADA DE FORMA GLOBAL PQ SE DECLARAR DENTRO DA FUN√á√ÉO, SEMPRE QUE VOLTARMOS PELO WHILE, ELA VAI VOLTAR A SER 1.
 
 // Estrutura da lista declarada para armazenar dados.
 typedef struct lista {
@@ -53,7 +53,7 @@ void venda(void);
 // Inicializa a estrutura de dados principal. 
 Dados *principal = NULL;
 
-//**************************************************************  FUN«√O INICIA_DADOS (STRUCT) *************************************************************************
+//**************************************************************  FUN√á√ÉO INICIA_DADOS (STRUCT) *************************************************************************
 // Cria a nova lista apontando o proximo no para NULL.
 Dados *inicia_dados(char *nome, float preco, int cod) {
 
@@ -73,7 +73,7 @@ Dados *inicia_dados(char *nome, float preco, int cod) {
 }
 
 
-//**************************************************************  FUN«√O INSERE_DADOS (STRUCT) *************************************************************************
+//**************************************************************  FUN√á√ÉO INSERE_DADOS (STRUCT) *************************************************************************
 // Como a lista nao esta mais vazia, apontamos o proximo no para lista anterior.
 Dados *insere_dados(Dados *dados, char *nome, float preco, int cod) {
 
@@ -94,7 +94,7 @@ Dados *insere_dados(Dados *dados, char *nome, float preco, int cod) {
 }
 
 
-//**************************************************************  FUN«√O EXIBE_DADOS *************************************************************************
+//**************************************************************  FUN√á√ÉO EXIBE_DADOS *************************************************************************
 // Percorre todos os campos da lista e imprime ate o ponteiro proximo chegar em NULL.
 void exibe_dados(Dados *dados) {
 
@@ -104,7 +104,7 @@ void exibe_dados(Dados *dados) {
 
         for (; dados != NULL; dados = dados->proximo) {
                 fprintf(stdout, "Nome do produto: %s\n", dados->nome);
-                fprintf(stdout, "CÛdigo do produto: %d\n", dados->cod);
+                fprintf(stdout, "C√≥digo do produto: %d\n", dados->cod);
                 fprintf(stdout, " R$: %4.2f reais \n", dados->preco);
                 fprintf(stdout, "------------------------\n ");
         }
@@ -112,7 +112,7 @@ void exibe_dados(Dados *dados) {
         getch();
 }
 
-//**************************************************************  FUN«√O BUSCA_DADOS *************************************************************************
+//**************************************************************  FUN√á√ÉO BUSCA_DADOS *************************************************************************
 // Percorre a lista comparando o nome com a chave.
 void busca_dados(Dados *dados, int chave) {
 
@@ -124,7 +124,7 @@ void busca_dados(Dados *dados, int chave) {
 
                         printf("------------------------\n");
                         printf("Nome do produto: %s\n", dados->nome);
-                        printf("CÛdigo do produto: %d\n", dados->cod);
+                        printf("C√≥digo do produto: %d\n", dados->cod);
                         printf("R$ %4.2f reais \n", dados->preco);
                         printf("------------------------\n");
                         achou++;
@@ -138,7 +138,7 @@ void busca_dados(Dados *dados, int chave) {
 
 }
 
-//**************************************************************  FUN«√O DELETA_DADOS *************************************************************************
+//**************************************************************  FUN√á√ÉO DELETA_DADOS *************************************************************************
 // Deleta o ultimo registro inserido.
 
 Dados *deleta_dados(Dados *dados) {
@@ -156,7 +156,7 @@ Dados *deleta_dados(Dados *dados) {
         return novo;
 }
 
-//**************************************************************  FUN«√O CHECA_VAZIO *************************************************************************
+//**************************************************************  FUN√á√ÉO CHECA_VAZIO *************************************************************************
 // apenas checa se a struct aponta pra NULL.
 int checa_vazio(Dados *dados) {
 
@@ -169,20 +169,20 @@ int checa_vazio(Dados *dados) {
 }
 
 
-//**************************************************************  FUN«√O VENDA_DADOS *************************************************************************
+//**************************************************************  FUN√á√ÉO VENDA_DADOS *************************************************************************
 void venda_dados(Dados *dados, FILE *arquivo, int volta, int conta) {
 
-	int qnt, chave, produto = 1; // Conta vai marcar o n˙mero de pedidos na fila
+	int qnt, chave, produto = 1; // Conta vai marcar o n√∫mero de pedidos na fila
     float valor =0, preco;
     char cmd[256];
 	static int ped = 1;
         do{
-        	int achou = 0; // È declarada aqui, pq se n„o mesmo que um produto n„o estivesse cadastrado ele continuaria a venda
-        	Dados *b_dados = dados; // Ponteiro para resetar o for. O For, depois de executado para no item escolhido, logo, È como se ignora-se todos os itens antes do escolhido
+        	int achou = 0; // √© declarada aqui, pq se n√£o mesmo que um produto n√£o estivesse cadastrado ele continuaria a venda
+        	Dados *b_dados = dados; // Ponteiro para resetar o for. O For, depois de executado para no item escolhido, logo, √© como se ignora-se todos os itens antes do escolhido
         	
         	
-        		if (!checa_vazio(principal)) { //teste se t· vazio, como na funÁ„o busca, mas tudo em uma funÁ„o sÛ
-                		fprintf(stdout, "\n Digite o cÛdigo do produto: \n--> ");
+        		if (!checa_vazio(principal)) { //teste se t√° vazio, como na fun√ß√£o busca, mas tudo em uma fun√ß√£o s√≥
+                		fprintf(stdout, "\n Digite o c√≥digo do produto: \n--> ");
                 		scanf("%d", &chave);
 
 
@@ -194,7 +194,7 @@ void venda_dados(Dados *dados, FILE *arquivo, int volta, int conta) {
 
                         printf(" ------------------------\n");
                         printf(" Nome do produto: %s\n", dados->nome);
-                        printf(" CÛdigo do produto: %d\n", dados->cod);
+                        printf(" C√≥digo do produto: %d\n", dados->cod);
                         printf(" R$ %4.2f reais \n", dados->preco);
                         printf(" ------------------------\n");
                         achou++;
@@ -206,7 +206,7 @@ void venda_dados(Dados *dados, FILE *arquivo, int volta, int conta) {
                 printf("Nenhum resultado encontrado.");
         else{
                 printf("\n\n Foram encontrados %d registros. \n\n", achou);
-															   conta++;  //adiciona o n˙mero do pedido .txt
+															   conta++;  //adiciona o n√∫mero do pedido .txt
 
         printf(" Quantidade: ");
 		scanf("%d", &qnt);
@@ -215,22 +215,22 @@ void venda_dados(Dados *dados, FILE *arquivo, int volta, int conta) {
 						 arquivo = fopen("pedido.txt","a"); //criando arquivo .txt
                          
                         				 if(arquivo == NULL)
-                                	     printf("Erro ao se comunicar com o servidor da cozinha!"); // n„o conseguiu salvar o .TXT
+                                	     printf("Erro ao se comunicar com o servidor da cozinha!"); // n√£o conseguiu salvar o .TXT
 
                          				 else {
-    			 						        fprintf(arquivo," Pedido n˙mero: %d", conta);
+    			 						        fprintf(arquivo," Pedido n√∫mero: %d", conta);
     			 						        fprintf(arquivo,"\n\n-------------------------\n");
    			    						        fprintf(arquivo," NOME: %s \n", dados->nome);  // Vai escrever isso no .txt
    			    						        fprintf(arquivo," QUANTIDADE: %d\n", qnt);
    			    						        fprintf(arquivo,"-------------------------\n");
    		              	                      }
    		              	  fclose(arquivo);
-   		              	 		sprintf(cmd,"rename pedido.txt pedido%d.txt", ped);//muda o nome do pedido, assim, a cada nova venda È criado um novo .txt
+   		              	 		sprintf(cmd,"rename pedido.txt pedido%d.txt", ped);//muda o nome do pedido, assim, a cada nova venda √© criado um novo .txt
 						 		system(cmd);
-						 		ped++;// incrementa o valor do pedido, para mudar os txt subsequentes. ENTRA AQUI, PQ SE FOR ADICIONAR MAIS UM PRODUTO, N√O CRIAR UM NOVO TXT DE PEDIDO		
+						 		ped++;// incrementa o valor do pedido, para mudar os txt subsequentes. ENTRA AQUI, PQ SE FOR ADICIONAR MAIS UM PRODUTO, N√ÉO CRIAR UM NOVO TXT DE PEDIDO		
 						  
        
-		valor = valor + (dados->preco * qnt); // vari·vel acumulativa
+		valor = valor + (dados->preco * qnt); // vari√°vel acumulativa
         printf("\n Valor total R$: %4.2f", valor);
         }
         
@@ -241,7 +241,7 @@ void venda_dados(Dados *dados, FILE *arquivo, int volta, int conta) {
         
         	if (volta == 1) 
         	{
-        		produto++;// volta a 1 sempre, toda vez que sai da funÁ„o
+        		produto++;// volta a 1 sempre, toda vez que sai da fun√ß√£o
 				printf("\n\n****************  PRODUTO 0%d  ****************\n", produto);
         	}
         	else if(volta == 0)
@@ -249,7 +249,7 @@ void venda_dados(Dados *dados, FILE *arquivo, int volta, int conta) {
         		
         
         		
-          }// chave do if l· em cima
+          }// chave do if l√° em cima
         }while(volta == 1);
         
        
@@ -257,7 +257,7 @@ void venda_dados(Dados *dados, FILE *arquivo, int volta, int conta) {
 
 
 
-//**************************************************************  FUN«√O INSERE  *************************************************************************
+//**************************************************************  FUN√á√ÉO INSERE  *************************************************************************
 
 /* Obtem os dados necessarios para chamar as funcoes de manuseio de dados. */
 void insere(void) {
@@ -273,10 +273,10 @@ void insere(void) {
         printf("\n Digite o nome do produto: ");
         scanf("%s", nome); 
 
-        printf("\n Digite o cÛdigo do produto: ");
+        printf("\n Digite o c√≥digo do produto: ");
         scanf("%d", &cod);
 
-        printf("\n Digite o preÁo: ");
+        printf("\n Digite o pre√ßo: ");
         scanf("%f", &preco);
 
         printf("\n\n PRODUTO CADASTRADO!");
@@ -287,7 +287,7 @@ void insere(void) {
                 principal = insere_dados(principal, nome, preco, cod);
 }
 
-//**************************************************************  FUN«√O EXIBE  *************************************************************************
+//**************************************************************  FUN√á√ÉO EXIBE  *************************************************************************
 void exibe(void) {
 
         if (!checa_vazio(principal))
@@ -295,35 +295,35 @@ void exibe(void) {
 
 }
 
-//**************************************************************  FUN«√O BUSCA  *************************************************************************
+//**************************************************************  FUN√á√ÉO BUSCA  *************************************************************************
 void busca(void) {
 
         int chave;
 
         if (!checa_vazio(principal)) {
 
-                printf("Digite o cÛdigo do produto: \n--> ");
+                printf("Digite o c√≥digo do produto: \n--> ");
                 scanf("%d", &chave);
 
                 busca_dados(principal, chave);
                 getch();
         }
 }
-//**************************************************************  FUN«√O DELETA  *************************************************************************
+//**************************************************************  FUN√á√ÉO DELETA  *************************************************************************
 void deleta(void) {
 
         if (!checa_vazio(principal))
                 principal = deleta_dados(principal);
 }
 
-//**************************************************************  FUN«√O VENDA  *************************************************************************
+//**************************************************************  FUN√á√ÉO VENDA  *************************************************************************
 
 void venda(void){
               venda_dados(principal, arquivo, volta, conta);
             }
 
 
-//************************************************************* FUN«’ES DA SETA **************************************************************************
+//************************************************************* FUN√á√ïES DA SETA **************************************************************************
 inicio01()// PROCURAR UM JEITO MENOS ZOADO DE FAZER ISSO 
 {
    system("cls");
@@ -344,7 +344,7 @@ ch=getch();
 		{
 	 	system("cls");
 	 	printf("\t NOVA VENDA\n\n");
-     	venda();//Chama a funÁ„o
+     	venda();//Chama a fun√ß√£o
      	sleep(1000);
     	}
 
@@ -361,7 +361,7 @@ ch=getch();
       		inicio01();
 }
 
-//************************************************************** INÕCIO 02 ***********************************************************************
+//************************************************************** IN√çCIO 02 ***********************************************************************
 inicio02()
 {
    system("cls");
@@ -396,7 +396,7 @@ ch=getch();
 }
 
 
-//************************************************************** INÕCIO 03 ***********************************************************************
+//************************************************************** IN√çCIO 03 ***********************************************************************
 inicio03()
 {
    system("cls");
@@ -431,7 +431,7 @@ else if (ch==224)
       inicio03();
 }
 
-//************************************************************** INÕCIO 04 ***********************************************************************
+//************************************************************** IN√çCIO 04 ***********************************************************************
 inicio04()
 {
    system("cls");
@@ -466,7 +466,7 @@ else if (ch==224)
       inicio04();
 }
 
-//************************************************************** INÕCIO 05 ***********************************************************************
+//************************************************************** IN√çCIO 05 ***********************************************************************
 inicio05()
 {
    system("cls");
@@ -501,7 +501,7 @@ else if (ch==224)
       inicio05();
 }
 
-//************************************************************** INÕCIO 06 ***********************************************************************
+//************************************************************** IN√çCIO 06 ***********************************************************************
 inicio06()
 {
    system("cls");
@@ -535,7 +535,7 @@ else if (ch==224)
 
 
 
-//**************************************************************  FUN«√O MAIN  *************************************************************************
+//**************************************************************  FUN√á√ÉO MAIN  *************************************************************************
 
 
 int main() {     
